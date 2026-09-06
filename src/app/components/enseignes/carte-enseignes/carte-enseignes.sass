@@ -1,0 +1,21 @@
+div.cache
+  visibility: hidden
+
+div.carte
+  height: 100%
+  width: 100%
+  border-radius: 8px
+
+/* Empêcher Leaflet d'appliquer des styles blancs par défaut sur le DivIcon */
+::ng-deep .fond-marqueur
+  background: none
+  border: none
+
+/* Le cœur du marqueur (petit cercle central coloré) */
+::ng-deep .marqueur
+  width: 14px
+  height: 14px
+  background-color: var(--mat-sys-primary)
+  border: 2px solid var(--mat-sys-primary-container)
+  border-radius: 50%
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3)

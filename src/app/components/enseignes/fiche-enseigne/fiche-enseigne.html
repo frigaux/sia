@@ -1,0 +1,59 @@
+@if (chargement()) {
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+} @else if (enseigne(); as enseigne) {
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>{{ enseigne.etablissement }}</mat-card-title>
+      <mat-card-subtitle>
+        {{ enseigne.numeroVoie }} {{ enseigne.typeVoie }} {{ enseigne.voie }}<br />
+        {{ enseigne.codePostal }} {{ enseigne.commune }}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="ligne">
+        <label>{{ 'components.enseignes.fiche_enseigne.naf' | translate }}</label>
+        <span>{{ enseigne.naf }}</span>
+      </div>
+      <div class="ligne">
+        <label>{{ 'components.enseignes.fiche_enseigne.activite' | translate }}</label>
+        <span>{{activiteParCodeNAF?.get(enseigne.naf.substring(0,5))}}</span>
+      </div>
+      <div class="ligne">
+        <label>{{ 'components.enseignes.fiche_enseigne.siret' | translate }}</label>
+        <span>{{ enseigne.siret }}</span>
+      </div>
+      <div class="ligne">
+        <label>{{ 'components.enseignes.fiche_enseigne.sia' | translate }}</label>
+        <span>{{ enseigne.sia }}</span>
+      </div>
+      <div class="ligne">
+        <label>{{ 'components.enseignes.fiche_enseigne.date_creation' | translate }}</label>
+        <span>{{ enseigne.dateCreation | date: 'dd/MM/yyyy' }}</span>
+      </div>
+      <div class="ligne">
+        <label>{{ 'components.enseignes.fiche_enseigne.etablissement_siege' | translate }}</label>
+        <span>{{ enseigne.etablissementSiege ? ('commun.oui' | translate) : ('commun.non' | translate) }}</span>
+      </div>
+      <div class="ligne">
+        <label>{{ 'components.enseignes.fiche_enseigne.effectif' | translate }}</label>
+        <span>{{ enseigne.effectif }}</span>
+      </div>
+      <div class="ligne">
+        <label>{{ 'components.enseignes.fiche_enseigne.liens' | translate }}</label>
+        <span>
+          <a href="{{ `https://www.pagesjaunes.fr/siret/${enseigne.siret}` }}" target="_blank">
+            {{ 'components.enseignes.fiche_enseigne.pages_jaunes' | translate }}
+          </a>
+          <a href="{{ `https://annuaire-entreprises.data.gouv.fr/etablissement/${enseigne.siret}` }}" target="_blank">
+            {{ 'components.enseignes.fiche_enseigne.annuaire' | translate }}
+          </a>
+          <a
+            href="{{ `https://www.societe.com/societe/${enseigne.etablissement.replaceAll(' ','').toLowerCase()}-${enseigne.siret.substring(0, 9)}` }}.html"
+            target="_blank">
+            {{ 'components.enseignes.fiche_enseigne.société' | translate }}
+          </a>
+        </span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+}

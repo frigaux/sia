@@ -1,0 +1,23 @@
+{
+  "commun": {
+    "oui": "oui",
+    "non": "non"
+  },
+  "components": {
+    "enseignes": {
+      "fiche_enseigne": {
+        "naf": "Code NAF",
+        "activite": "Activité",
+        "siret": "SIRET",
+        "sia": "SIA",
+        "date_creation": "Date de création",
+        "etablissement_siege": "Etablissement siège",
+        "effectif": "Effectif",
+        "liens": "Liens",
+        "pages_jaunes": "pages jaunes",
+        "annuaire": "annuaire des entreprises",
+        "société": "société"
+      }
+    }
+  }
+}

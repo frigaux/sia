@@ -1,0 +1,28 @@
+div.ligne
+  display: flex
+
+@media (orientation: landscape)
+  div.ligne
+    flex-direction: row
+
+    app-carte-enseignes, app-fiche-enseigne
+      width: calc(50vw - 2rem)
+
+    app-carte-enseignes
+      height: calc(100vh - 2rem)
+
+    app-fiche-enseigne
+      margin-left: 1rem
+
+@media (orientation: portrait)
+  div.ligne
+    flex-direction: column
+
+    app-carte-enseignes, app-fiche-enseigne
+      width: calc(100vw - 2rem)
+
+    app-carte-enseignes
+      height: 50vh
+
+    app-fiche-enseigne
+      margin-top: 1rem

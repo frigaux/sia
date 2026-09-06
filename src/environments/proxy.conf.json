@@ -1,0 +1,7 @@
+{
+  "/informatique/angular/sia/json/**": {
+    "target": "http://fabien.rigaux.free.fr",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

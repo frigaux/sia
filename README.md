@@ -2,6 +2,25 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.4.
 
+## Installation
+
+```bash
+npm install -g @angular/cli
+ng new sia
+```
+
+- Sass (Indented)
+- no SSR, no SSG
+- Gemini CLI
+
+```bash
+npm i @ngx-translate/core
+ng add @angular/material
+ng generate environments
+npm install leaflet
+npm install --save-dev @types/leaflet
+```
+
 ## Development server
 
 To start a local development server, run:
