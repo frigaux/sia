@@ -6,6 +6,9 @@ div.carte
   width: 100%
   border-radius: 8px
 
+::ng-deep .hide-tooltips .leaflet-tooltip
+  display: none !important
+
 /* Empêcher Leaflet d'appliquer des styles blancs par défaut sur le DivIcon */
 ::ng-deep .fond-marqueur
   background: none

@@ -40,6 +40,7 @@ export class CarteEnseignes implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.initialiserCarte();
+    this.gererZoom();
   }
 
   ngOnInit(): void {
@@ -76,7 +77,7 @@ export class CarteEnseignes implements OnInit, AfterViewInit {
     this.groupeMarqueurs.addTo(this.carte);
   }
 
-  public placerMarqueursEnseignes(enseignes: Enseigne[]): void {
+  private placerMarqueursEnseignes(enseignes: Enseigne[]): void {
     this.groupeMarqueurs.clearLayers();
     if (this.carte) {
       enseignes.forEach((enseigne) => {
@@ -93,6 +94,22 @@ export class CarteEnseignes implements OnInit, AfterViewInit {
             offset: [10, 0],
             interactive: true,
           });
+      });
+    }
+  }
+
+  private gererZoom(): void {
+    if (this.carte) {
+      const mapContainer = this.carte!.getContainer();
+      mapContainer.classList.add('hide-tooltips');
+
+      this.carte.on('zoomend', () => {
+        const currentZoom = this.carte!.getZoom();
+        if (currentZoom < 9) {
+          mapContainer.classList.add('hide-tooltips');
+        } else {
+          mapContainer.classList.remove('hide-tooltips');
+        }
       });
     }
   }
