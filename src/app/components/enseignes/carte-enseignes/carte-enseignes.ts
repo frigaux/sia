@@ -100,15 +100,14 @@ export class CarteEnseignes implements OnInit, AfterViewInit {
 
   private gererZoom(): void {
     if (this.carte) {
-      const mapContainer = this.carte!.getContainer();
-      mapContainer.classList.add('hide-tooltips');
+      const container = this.carte!.getContainer();
+      container.classList.add('hide-tooltips');
 
       this.carte.on('zoomend', () => {
-        const currentZoom = this.carte!.getZoom();
-        if (currentZoom < 9) {
-          mapContainer.classList.add('hide-tooltips');
+        if (this.carte!.getZoom() < 9) {
+          container.classList.add('hide-tooltips');
         } else {
-          mapContainer.classList.remove('hide-tooltips');
+          container.classList.remove('hide-tooltips');
         }
       });
     }
